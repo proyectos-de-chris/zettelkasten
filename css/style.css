@@ -1,0 +1,575 @@
+:root {
+    --bg-color: #F5F5DC; /* Beige */
+    --primary-color: #D2B48C; /* Tan */
+    --secondary-color: #BC8F8F; /* Rosy Brown */
+    --text-color: #5D4037; /* Dark Brown */
+    --header-color: #A0522D; /* Sienna */
+    --border-color: #8B4513; /* Saddle Brown */
+    --indicator-color: #E53935; /* Red for indicator */
+    --added-bg-color: #e6ffed; /* Light green for additions */
+    --removed-bg-color: #ffeef0; /* Light red for deletions */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--header-color);
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+.main-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
+#unsaved-indicator {
+    color: var(--indicator-color);
+    font-size: 20px;
+    line-height: 1;
+}
+
+.wiki-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.search-bar input {
+    width: 250px;
+    padding: 8px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+.page-list-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.page-list-item:hover {
+    background-color: #FAF3E0;
+}
+
+.page-list-item-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.page-list-item-id {
+    font-family: monospace;
+    color: #999;
+    margin-right: 15px;
+}
+
+.page-list-tags {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.page-list-tags span {
+    font-size: 12px;
+    background-color: #f1e9d2;
+    color: var(--text-color);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.more-pages-info {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#page-view nav, #editor-view nav {
+    background-color: #f1e9d2;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.page-content {
+    margin-top: 20px;
+}
+
+.page-content a {
+    color: var(--header-color);
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--header-color);
+}
+
+.page-content a:hover {
+    color: var(--text-color);
+    border-bottom-style: solid;
+}
+
+.page-content h1, .page-content h2, .page-content h3 {
+    color: var(--header-color);
+}
+
+.page-content blockquote {
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 15px;
+    margin-left: 0;
+    font-style: italic;
+    color: #7d6a6a;
+}
+
+.page-content code {
+    background-color: #eee;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.tags {
+    margin-top: 20px;
+}
+
+.tags a {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    margin-right: 5px;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.tags a:hover {
+    background-color: var(--header-color);
+}
+
+#editor-view input[type="text"], #editor-view textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#editor-view textarea {
+    height: 400px;
+    resize: vertical;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #FAF3E0;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 8px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+#search-results h3 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+}
+
+#search-results-info {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.autocomplete-container {
+    position: relative;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid var(--primary-color);
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #f1e9d2;
+}
+
+.autocomplete-items div:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-items div:hover {
+    background-color: #FAF3E0;
+}
+
+.autocomplete-active {
+    background-color: var(--primary-color) !important;
+    color: #ffffff;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.history-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item p {
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.history-diff-view {
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: monospace;
+}
+
+.diff-added {
+    background-color: var(--added-bg-color);
+    text-decoration: none;
+}
+
+.diff-removed {
+    background-color: var(--removed-bg-color);
+    text-decoration: line-through;
+}
+
+.backlinks-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.backlinks-section h3 {
+    color: var(--header-color);
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.backlinks-section ul {
+    list-style-type: '»';
+    padding-left: 20px;
+}
+
+.backlinks-section li {
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+
+.page-list-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex; /* ¡NUEVO! para alinear el botón de pin */
+    justify-content: space-between; /* ¡NUEVO! */
+    align-items: center; /* ¡NUEVO! */
+}
+
+/* ... (resto de estilos hasta el modal) ... */
+
+/* ¡MODIFICADO! Aumentado el z-index para que esté por encima de la nueva barra lateral */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* ... (resto de estilos hasta el final) ... */
+
+/* --- ¡NUEVO! Estilos para el botón de Pin/Guardar Página --- */
+.pin-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ccc;
+    transition: color 0.2s;
+    padding: 5px;
+}
+
+.pin-btn:hover {
+    color: var(--primary-color);
+}
+
+.pin-btn.pinned {
+    color: var(--header-color);
+}
+
+/* --- ¡NUEVO! Estilos para la Barra Lateral de Páginas Guardadas --- */
+#pinned-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 300px;
+    background-color: #fff;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+#pinned-sidebar.hidden {
+    transform: translateX(100%);
+}
+
+.pinned-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--bg-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.pinned-sidebar-header h3 {
+    margin: 0;
+    color: var(--header-color);
+    font-size: 1em;
+}
+
+.btn-small {
+    padding: 4px 8px;
+    font-size: 12px;
+    background-color: var(--secondary-color);
+}
+
+#pinned-items-container {
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.pinned-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pinned-item:hover {
+    background-color: #FAF3E0;
+}
+
+.pinned-item-title {
+    color: var(--text-color);
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+.unpin-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ccc;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.unpin-btn:hover {
+    color: var(--indicator-color);
+}
+
+/* --- ¡NUEVO! Estilos para alinear el título y el botón de pin --- */
+.page-title-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px; /* Espacio entre el título y el botón */
+}
+
+.page-title-header h1 {
+    margin: 0; /* Quitar margen por defecto del h1 */
+}
+
+.backlinks-section {
+/* ... */
+}
+
+.page-title-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+.page-title-header h1 { margin: 0; }
+
+/* --- ¡NUEVO! Estilo para el botón de crear y enlazar en el editor --- */
+.editor-actions {
+    margin-bottom: 15px;
+}
+/* --- Fin nuevo estilo --- */
+
+.pin-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+/* --- ¡NUEVO! Estilos para la Página de Configuración --- */
+.config-module {
+    background-color: #f8f8f8;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.config-module h2 {
+    margin-top: 0;
+    color: var(--header-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.summary-list {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.summary-list p {
+    margin: 0 0 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-list p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.summary-list strong {
+    color: var(--header-color);
+}

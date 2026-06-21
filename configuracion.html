@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Wiki</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Configuración y Mantenimiento</h1>
+            <a href="wiki.html" class="btn">Volver a la Wiki</a>
+        </header>
+
+        <main>
+            <!-- Módulo 1: Fusionar Bases de Datos -->
+            <section class="config-module">
+                <h2>1. Fusionar (Merge) con otra Base de Datos</h2>
+                <p>Carga un fichero JSON externo para fusionarlo con la base de datos actual. Se priorizarán las entradas con la fecha de modificación más reciente.</p>
+                <div class="actions">
+                    <label for="merge-file-input" class="btn">Cargar JSON para Fusionar</label>
+                    <input type="file" id="merge-file-input" accept=".json" style="display: none;">
+                </div>
+                <div id="merge-summary" class="hidden">
+                    <h3>Resumen de la Fusión</h3>
+                    <div id="merge-summary-content" class="summary-list"></div>
+                    <button id="confirm-merge-btn" class="btn">Confirmar Fusión</button>
+                </div>
+            </section>
+
+            <!-- Módulo 2: Eliminar Historial -->
+            <section class="config-module">
+                <h2>2. Purgar Historial de Cambios</h2>
+                <p>Esta acción eliminará permanentemente todo el historial de cambios de todas las entradas. Reducirá el tamaño del fichero, pero los cambios pasados no se podrán recuperar.</p>
+                <div class="actions">
+                    <button id="purge-history-btn" class="btn">Eliminar Todo el Historial</button>
+                </div>
+            </section>
+
+            <!-- Módulo 3: Comprobar Errores -->
+            <section class="config-module">
+                <h2>3. Comprobar Errores Conocidos</h2>
+                <p>Analiza la base de datos en busca de problemas comunes.</p>
+                <div class="actions">
+                    <button id="check-errors-btn" class="btn">Iniciar Comprobación</button>
+                </div>
+                <div id="error-results" class="hidden">
+                    <h3>Resultados de la Comprobación</h3>
+                    <div id="error-results-content" class="summary-list"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

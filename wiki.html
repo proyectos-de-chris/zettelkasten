@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/diff/dist/diff.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="wiki-header">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Buscar en la wiki...">
+            </div>
+            <div class="actions">
+                <button id="new-page-btn" class="btn">Nueva página</button>
+                <button id="download-json-btn" class="btn">
+                    Guardar (json) <span id="unsaved-indicator" class="hidden">●</span>
+                </button>
+                <button id="toggle-sort-btn" class="btn">Ordenar por: Reciente</button>
+                <a href="search.html" class="btn">Búsqueda avanzada</a>
+                <a href="configuracion.html" class="btn">Configuración</a>
+                <a href="index.html" id="home-link" class="btn">Inicio</a>
+            </div>
+        </header>
+
+        <main id="wiki-content"></main>
+
+        <div id="page-view" class="hidden"></div>
+
+        <div id="editor-view" class="hidden"></div>
+
+        <!-- Modales -->
+        <div id="history-modal" class="modal-overlay hidden"></div>
+        <div id="link-creator-modal" class="modal-overlay hidden"></div>
+    </div>
+    
+    <div id="pinned-sidebar" class="hidden">
+        <div class="pinned-sidebar-header">
+            <h3>Páginas Guardadas</h3>
+            <button id="clear-pins-btn" class="btn-small">Limpiar</button>
+        </div>
+        <div id="pinned-items-container"></div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

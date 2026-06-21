@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de conocimiento</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestor de conocimiento</h1>
+            <p>Gestor de conocimiento jurídico</p>
+        </header>
+        <main class="main-options">
+            <button id="new-wiki" class="btn">Iniciar nuevo</button>
+            <label for="load-wiki-input" class="btn">
+                Cargar existente (.json)
+                <input type="file" id="load-wiki-input" accept=".json" style="display: none;">
+            </label>
+            <!-- ¡MODIFICADO! Ahora es un selector de ficheros .txt -->
+            <label for="initial-load-input" class="btn">
+                Carga inicial (desde .txt)
+                <input type="file" id="initial-load-input" accept=".txt" style="display: none;">
+            </label>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
